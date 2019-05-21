@@ -1,33 +1,129 @@
+body {
+    background-color: #1A1A1A;
+    font-family: 'IBM Plex Sans', 'Open Sans', 'Montserrat', 'PT Sans',  Arial, sans-serif;
+    height: 90vh;
+}
 .App {
-  text-align: center;
+    margin-left: 150px;
+    display: flex;
+    flex-flow: column;
+
+}
+p {
+    color: white;
+}
+.intro-text {
+    width: 240px;
+    margin-top: 250px;
+    font-size: 22px;
+}
+.intro-text p {
+    margin: 10px 0;
+}
+.intro-text hr {
+    margin: 0;
+}
+.timer div {
+    display: flex;
+    flex-flow: wrap;
+    margin: 40px 0;
+    
+}
+.timer p {
+    font-size: 60px;
+    margin: 10px 10px;
+    font-style: normal;
+    font-weight: lighter;
+
+}
+.link-csn {
+   font-size: 18px;
+   font-weight: lighter;
+   display: flex;
+   justify-content: space-between;
+   z-index: 500;
+   margin-bottom: 40px;
+}
+.link-csn a {
+    color: white;
+    text-decoration: none;
+}
+.link-csn a:hover {
+    text-decoration: underline;
+}
+.jonathan {
+    float: right;
+    margin: 0 80px;
+    text-align: end;
+}
+.jonathan p {
+    margin: 0;
+}
+.qoute-of-the-day {
+    max-width: auto;
+    display: flex;
+    margin-bottom: 120px;
+    float: left;
+    max-width: 600px;
+    text-align: center;
+}
+.qoute-of-the-day div {
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+}
+.quote {
+    margin: 0px;
+    font-weight: lighter;
+    font-style: italic;
+    font-size: 20px;
+}
+.quoter {
+    margin: 2px;
+    font-size: 20px;
+    font-style: italic;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+@media only screen and (max-width: 740px) {
+    .timer {
+        width: 300px;
+    }
+    .App {
+        margin-left: 0px;
+        display: flex;
+        align-items: center;
+        
+    }
+    body {
+        display: flex;
+        justify-content: center;
+       
+        margin: 0;
+    }
+    .intro-text {
+        margin-top: 50px;
+    }
+    .link-csn {
+        flex-flow: column;
+        justify-content: center;
+        text-align: center;
+    }
+    .jonathan {
+        text-align: center;
+        margin: 20px;
+        width: 80%;
+    }
+    .qoute-of-the-day div { 
+        width: 280px;
+        text-align: center;
+    }
+    .qoute-of-the-day {
+        justify-content: center;
+        margin: 35px 0;
+    }
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@media only screen and (max-width: 400px) {
+    .timer p {
+        font-size: 55px;
+    }
 }

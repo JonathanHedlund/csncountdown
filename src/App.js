@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import Countdown from './Countdown.js'
 import './App.css';
+import Quotes from './Quotes.js';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  render() {
+    return (
+      <div className="App" >
+
+        <div className="intro-text">
+          <p>When is CSN due?</p>
+          <hr />
+        </div>
+        <div className="timer">
+          <Countdown />
+        </div>
+        <div className="qoute-of-the-day">
+          <Quotes></Quotes>
+        </div>
+        <div className="link-csn">
+          <a href="https://www.csn.se/" target="_blank"> <br /> Click here to visit CSNs website</a>
+          <div className="jonathan">
+            <p>By Jonathan Hedlund</p>
+            <a href="https://jonathanhedlund.com/" target="_blank">www.jonathanhedlund.com</a>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
 }
 
 export default App;
