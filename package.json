@@ -2,7 +2,7 @@
   "name": "csncountdown",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://jonathanhedlund.github.io/csncountdown/",
+  "homepage": "https://jonathanhedlund.github.io/",
   "dependencies": {
     "axios": "^0.18.0",
     "cors": "^2.8.5",

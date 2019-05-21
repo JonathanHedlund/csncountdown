@@ -121,9 +121,12 @@ p {
         justify-content: center;
         margin: 35px 0;
     }
+    .timer p {
+        font-size: 50px;
+    }
 }
 @media only screen and (max-width: 400px) {
     .timer p {
-        font-size: 55px;
+        font-size: 50px;
     }
 }
