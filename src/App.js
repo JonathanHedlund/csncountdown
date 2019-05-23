@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Countdown from './Countdown.js'
 import './App.css';
 import Quotes from './Quotes.js';
+import Money from './Money.js';
 
 class App extends Component {
   render() {
@@ -14,6 +15,9 @@ class App extends Component {
         </div>
         <div className="timer">
           <Countdown />
+        </div>
+        <div className="csnAmount">
+          <Money></Money>
         </div>
         <div className="qoute-of-the-day">
           <Quotes></Quotes>
