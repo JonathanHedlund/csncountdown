@@ -28,7 +28,7 @@ p {
     margin: 40px 0;
 }
 .timer p {
-    font-size: 60px;
+    font-size: 57px;
     margin: 10px 10px;
     font-style: normal;
     font-weight: lighter;
@@ -127,4 +127,8 @@ p {
     .timer p {
         font-size: 50px;
     }
+}
+canvas {
+    width: 100vw;
+    height: 100vh
 }
