@@ -1,12 +1,50 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 
 class Money extends Component {
     constructor() {
         super();
+        this.calcCSNAmount()
         this.state = {
-            money: "8 007",
-            support: "2 478"
+            money: "",
+            support: ""
         }
+    }
+    calcCSNAmount() {
+        let csnMonth = new Date().getMonth() + 1;
+        let currentYear = new Date().getFullYear();
+        let currentDay = new Date().getDate();
+        let csnDay = 24;
+        console.log((new Date().getMonth()) + 1)
+
+        axios.get('https://api.dryg.net/dagar/v2.1/' + currentYear + '/' + csnMonth)
+            .then((response) => {
+                // handle success
+                console.log(response);
+                console.log(currentDay);
+                while (("Lördag" === response.data.dagar[csnDay].veckodag) ||
+                    ("Söndag" === response.data.dagar[csnDay].veckodag) ||
+                    (response.data.dagar[csnDay]["röd dag"] === "Ja")) {
+                    csnDay--;
+                }
+                if (currentDay > (csnDay + 1)) {
+                    this.setState(() => ({
+                        money: "10 676",
+                        support: "3 236"
+                    }))
+                }
+                else {
+                    this.setState(() => ({
+                        money: "8 007",
+                        support: "2 427"
+                    }))
+                }
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            })
+
     }
     render() {
         return (

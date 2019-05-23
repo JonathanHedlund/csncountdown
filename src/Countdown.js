@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import Confetti from 'react-confetti'
-
+import csnSong from './csnSong.mp3'
+import kazoo from './kazoo.mp3'
+import Sound from 'react-sound'
 
 
 class Countdown extends Component {
@@ -82,13 +84,12 @@ class Countdown extends Component {
                     minuteText: "",
                     secondText: "",
                 }))
-                console.log(this.state.csnToday)
             }
         }, 100);
-
     }
+
     isItCSN() {
-        if (this.state.csnDay + 1 === new Date().getDate()) {
+        if ((this.state.csnDay + 1) === new Date().getDate()) {
             this.setState(() => ({
                 csnToday: true
             }))
@@ -130,9 +131,6 @@ class Countdown extends Component {
                 // handle error
                 console.log(error);
             })
-        if (currentDay >= csnDay) {
-
-        }
     }
     calcNextCSNDay() {
         let csnMonth = new Date().getMonth() + 2;
@@ -158,7 +156,16 @@ class Countdown extends Component {
                 // handle error
                 console.log(error);
             })
-
+    }
+    handlePlaySong() {
+        if (this.state.csnToday) {
+            return Sound.status.PLAYING
+        }
+        else {
+            return Sound.status.STOPPED
+        }
+    }
+    handleSongFinishedPlaying() {
 
     }
     render() {
@@ -171,6 +178,15 @@ class Countdown extends Component {
                 <p>{this.state.seconds + " " + this.state.secondText}</p>
 
                 <Confetti numberOfPieces="300" run={this.state.csnToday} />
+                <Sound
+                    url={csnSong}
+                    playStatus={this.handlePlaySong()}
+                    onFinishedPlaying={this.handleSongFinishedPlaying()}
+                    autoLoad={true}
+                    loop={true}
+                    volume={50}
+                />
+
             </div >
         );
     }
