@@ -4,17 +4,16 @@ body {
     height: 90vh;
 }
 .App {
-    margin-left: 150px;
+    margin-left: 10%;
     display: flex;
     flex-flow: column;
-
 }
 p {
     color: white;
 }
 .intro-text {
     width: 240px;
-    margin-top: 250px;
+    margin-top: 20%;
     font-size: 22px;
 }
 .intro-text p {
@@ -27,14 +26,12 @@ p {
     display: flex;
     flex-flow: wrap;
     margin: 40px 0;
-    
 }
 .timer p {
     font-size: 60px;
     margin: 10px 10px;
     font-style: normal;
     font-weight: lighter;
-
 }
 .link-csn {
    font-size: 18px;
@@ -85,6 +82,9 @@ p {
 }
 
 @media only screen and (max-width: 740px) {
+    .intro-text {
+
+    }
     .timer {
         width: 300px;
     }
@@ -92,12 +92,10 @@ p {
         margin-left: 0px;
         display: flex;
         align-items: center;
-        
     }
     body {
         display: flex;
         justify-content: center;
-       
         margin: 0;
     }
     .intro-text {
