@@ -199,13 +199,7 @@ class Countdown extends Component {
 
                 <Confetti numberOfPieces="300" run={this.state.csnToday} />
 
-                <Sound
-                    url={csnSong}
-                    playStatus={Sound.status.PLAYING}
-                    autoLoad={true}
-                    loop={false}
-                    volume={50}
-                />
+
 
             </div >
         );
