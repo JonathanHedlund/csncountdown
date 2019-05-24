@@ -33,6 +33,9 @@ p {
     font-style: normal;
     font-weight: lighter;
 }
+button {
+    z-index: 50;
+}
 .link-csn {
    font-size: 18px;
    font-weight: lighter;

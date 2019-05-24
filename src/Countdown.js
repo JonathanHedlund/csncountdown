@@ -7,15 +7,16 @@ import Sound from 'react-sound'
 
 
 class Countdown extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.calcNextCSNDay();
         this.calcCSNDay();
+        let currentComponent = this;
         this.state = {
             csnDay: "",
-            days: "",
             nextCSNDay: 24,
             daysOfMonth: "",
+            days: "",
             hours: 23 - (new Date().getHours()),
             minutes: 59 - (new Date().getMinutes()),
             seconds: 59 - (new Date().getSeconds()),
@@ -23,10 +24,13 @@ class Countdown extends Component {
             hourText: "Hours",
             minuteText: "Minutes",
             secondText: "Seconds",
-            csnToday: false
+            csnToday: false,
+            musicOn: true,
+            buttonName: "Stop Music"
         };
 
         setInterval(() => {
+
             this.isItCSN()
             if (!(this.state.csnToday)) {
                 if ((new Date().getDate() < this.state.csnDay + 1)) {
@@ -91,12 +95,14 @@ class Countdown extends Component {
     isItCSN() {
         if ((this.state.csnDay + 1) === new Date().getDate()) {
             this.setState(() => ({
-                csnToday: true
+                csnToday: true,
             }))
+
         } else {
             this.setState(() => ({
-                csnToday: false
+                csnToday: false,
             }))
+
         }
     }
     //Calculates which date CSN comes
@@ -165,25 +171,39 @@ class Countdown extends Component {
             return Sound.status.STOPPED
         }
     }
-    handleSongFinishedPlaying() {
+    handleMusic() {
+        let currentComponent = this;
+        if (currentComponent.state.musicOn) {
+            this.setState(() => ({
+                buttonName: "Stop Music",
+                musicOn: true
+            }))
+        }
+        else {
+            this.setState(() => ({
+                buttonName: "Play Music",
+                musicOn: false
+            }))
+        }
 
     }
+
+
     render() {
         return (
             <div>
                 <p>{this.state.days + " " + this.state.dayText}</p>
                 <p>{this.state.hours + " " + this.state.hourText}</p>
                 <p>{this.state.minutes + " " + this.state.minuteText}</p>
-                <br />
                 <p>{this.state.seconds + " " + this.state.secondText}</p>
 
                 <Confetti numberOfPieces="300" run={this.state.csnToday} />
+
                 <Sound
                     url={csnSong}
-                    playStatus={this.handlePlaySong()}
-                    onFinishedPlaying={this.handleSongFinishedPlaying()}
+                    playStatus={Sound.status.PLAYING}
                     autoLoad={true}
-                    loop={true}
+                    loop={false}
                     volume={50}
                 />
 
