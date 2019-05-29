@@ -172,8 +172,7 @@ class Countdown extends Component {
         }
     }
     handleMusic() {
-        let currentComponent = this;
-        if (currentComponent.state.musicOn) {
+        if (this.state.musicOn) {
             this.setState(() => ({
                 buttonName: "Stop Music",
                 musicOn: true
@@ -185,9 +184,7 @@ class Countdown extends Component {
                 musicOn: false
             }))
         }
-
     }
-
 
     render() {
         return (
@@ -199,7 +196,14 @@ class Countdown extends Component {
 
                 <Confetti numberOfPieces="300" run={this.state.csnToday} />
 
-
+                <Sound
+                    url={csnSong}
+                    playStatus={this.handlePlaySong()}
+                    autoLoad={true}
+                    loop={false}
+                    volume={50}
+                />
+                <button hidden={!this.state.csnToday} onClick={this.handleMusic}>STOP MUSIC</button>
 
             </div >
         );
