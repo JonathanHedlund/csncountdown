@@ -35,8 +35,8 @@ class Money extends Component {
                 }
                 else {
                     this.setState(() => ({
-                        money: "8 007",
-                        support: "2 427"
+                        money: "10 676",
+                        support: "3 236"
                     }))
                 }
             })
