@@ -46,10 +46,13 @@ class Money extends Component {
             })
 
     }
+
+
     render() {
         return (
             <div>
-                <p>Studying full time (100%) will give you <em>{this.state.money}</em> SEK, where <em>{this.state.support}</em> SEK is financial support.</p>
+                <p>Studying full time (100%) will give you <em>{this.state.money}</em> SEK, where
+                <em> {this.state.support}</em> SEK is financial support.</p>
             </div>
         )
 

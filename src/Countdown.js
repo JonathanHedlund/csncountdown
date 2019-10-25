@@ -1,20 +1,18 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import Confetti from 'react-confetti'
-import csnSong from './csnSong.mp3'
+
 import kazoo from './kazoo.mp3'
 import Sound from 'react-sound'
-
 
 class Countdown extends Component {
     constructor(props) {
         super(props);
         this.calcNextCSNDay();
         this.calcCSNDay();
-        let currentComponent = this;
         this.state = {
             csnDay: "",
-            nextCSNDay: 24,
+            nextCSNDay: "",
             daysOfMonth: "",
             days: "",
             hours: 23 - (new Date().getHours()),
@@ -30,7 +28,6 @@ class Countdown extends Component {
         };
 
         setInterval(() => {
-
             this.isItCSN()
             if (!(this.state.csnToday)) {
                 if ((new Date().getDate() < this.state.csnDay + 1)) {
@@ -48,6 +45,7 @@ class Countdown extends Component {
                     minutes: 59 - (new Date().getMinutes()),
                     seconds: 59 - (new Date().getSeconds())
                 }))
+
                 if (this.state.days === 1) {
                     this.setState(() => ({
                         dayText: "Day"
@@ -105,6 +103,7 @@ class Countdown extends Component {
 
         }
     }
+
     //Calculates which date CSN comes
     calcCSNDay() {
         let csnMonth = new Date().getMonth() + 1;
@@ -116,7 +115,6 @@ class Countdown extends Component {
             .then((response) => {
                 // handle success
                 console.log(response.data.dagar.length);
-                console.log(response);
                 console.log(response);
                 console.log(currentDay);
                 while (("Lördag" === response.data.dagar[csnDay].veckodag) ||
@@ -138,6 +136,7 @@ class Countdown extends Component {
                 console.log(error);
             })
     }
+
     calcNextCSNDay() {
         let csnMonth = new Date().getMonth() + 2;
         let currentYear = new Date().getFullYear();
@@ -193,21 +192,12 @@ class Countdown extends Component {
                 <p>{this.state.hours + " " + this.state.hourText}</p>
                 <p>{this.state.minutes + " " + this.state.minuteText}</p>
                 <p>{this.state.seconds + " " + this.state.secondText}</p>
-
                 <Confetti numberOfPieces="300" run={this.state.csnToday} />
-
-                <Sound
-                    url={csnSong}
-                    playStatus={this.handlePlaySong()}
-                    autoLoad={true}
-                    loop={false}
-                    volume={50}
-                />
-                <button hidden={!this.state.csnToday} onClick={this.handleMusic}>STOP MUSIC</button>
-
             </div >
         );
     }
+
+
 }
 
 export default Countdown

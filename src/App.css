@@ -36,6 +36,10 @@ p {
 button {
     z-index: 50;
 }
+audio {
+    z-index: 50;
+    margin-top: 20px;
+}
 .link-csn {
    font-size: 18px;
    font-weight: lighter;

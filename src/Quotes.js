@@ -27,9 +27,10 @@ class Quotes extends Component {
                 console.log(error);
             })
     }
+
+
     componentDidMount() {
         axios.get('https://quota.glitch.me/random')
-
             .then((response) => {
                 // handle success
                 console.log(response);
@@ -39,13 +40,13 @@ class Quotes extends Component {
                     quote: response.data.quoteText,
                     quoter: response.data.quoteAuthor
                 })
-
             })
             .catch(function (error) {
                 // handle error
                 console.log(error);
             })
     }
+
     render() {
         return (
             <div>
@@ -54,6 +55,8 @@ class Quotes extends Component {
             </div>
         )
     }
+
+
 }
 
 export default Quotes
