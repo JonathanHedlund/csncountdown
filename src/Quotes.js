@@ -50,8 +50,8 @@ class Quotes extends Component {
     render() {
         return (
             <div>
-                <p className="quote">"{this.state.quote}"</p>
-                <p className="quoter">- {this.state.quoter}</p>
+                <p className="quote">Damn I just got my CSN but I've already used it all, when is the next one due?</p>
+                <p className="quoter">- Every student ever</p>
             </div>
         )
     }
